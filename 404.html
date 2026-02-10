@@ -2,10 +2,19 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta http-equiv="refresh" content="0; url=/arena-leaderboard/" />
+    <meta name="robots" content="noindex" />
     <script>
-      // preserve path/query by rewriting to index with a query payload (optional)
-      // simplest: just redirect to base
+      (function () {
+        var base = "/arena-leaderboard";
+        var path = location.pathname;
+        var search = location.search || "";
+        var hash = location.hash || "";
+
+        if (path.indexOf(base) === 0) path = path.slice(base.length);
+
+        var redirect = base + "/?__p=" + encodeURIComponent(path + search + hash);
+        location.replace(redirect);
+      })();
     </script>
   </head>
   <body></body>

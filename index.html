@@ -5,6 +5,23 @@
     <link rel="icon" type="image/svg+xml" href="/arena-leaderboard/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>arena-leaderboard-wa</title>
+    <script>
+      (function () {
+        var sp = new URLSearchParams(location.search);
+        var p = sp.get("__p");
+        if (!p) return;
+
+        sp.delete("__p");
+        var cleanSearch = sp.toString();
+        var target = decodeURIComponent(p);
+
+        history.replaceState(
+          null,
+          "",
+          "/arena-leaderboard" + target + (cleanSearch ? "?" + cleanSearch : "")
+        );
+      })();
+    </script>
     <script type="module" crossorigin src="/arena-leaderboard/assets/index-BsAo1mCe.js"></script>
     <link rel="stylesheet" crossorigin href="/arena-leaderboard/assets/index-BlTVcFAW.css">
   </head>
