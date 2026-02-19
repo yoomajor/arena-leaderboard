@@ -13,7 +13,6 @@
         if (path.indexOf(base) === 0) path = path.slice(base.length);
 
         var redirect = base + "/?__p=" + encodeURIComponent(path + search + hash);
-        alert(redirect)
         location.replace(redirect);
       })();
     </script>
